@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Твій дім там, де ти | Контакти</title>
+        <title>Твій дім там, де ти | Обране</title>
         <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
@@ -317,10 +317,10 @@
                                     <a class="header-desktop-menu-link" href="about.html">Про нас</a>
                                 </li>
                                 <li class="header-desktop-menu-item">
-                                    <a class="header-desktop-menu-link active" href="contacts.html">Контакти</a>
+                                    <a class="header-desktop-menu-link" href="contacts.html">Контакти</a>
                                 </li>
                                 <li class="header-desktop-menu-item">
-                                    <a class="header-desktop-menu-link" href="selected.html">Обрані</a>
+                                    <a class="header-desktop-menu-link active" href="selected.html">Обрані</a>
                                 </li>
                             </ul>
                         </nav>
@@ -364,7 +364,7 @@
                                                 </a>
                                             </li>
                                             <li class="header-mobile-menu-item">
-                                                <a class="header-mobile-menu-link active" href="contacts.html">
+                                                <a class="header-mobile-menu-link" href="contacts.html">
                                                     <span class="header-mobile-menu-link-text">Контакти</span>
                                                     <svg class="icon header-mobile-menu-link-icon">
                                                         <use href="#angle-right-icon"></use>
@@ -372,7 +372,7 @@
                                                 </a>
                                             </li>
                                             <li class="header-mobile-menu-item">
-                                                <a class="header-mobile-menu-link" href="selected.html">
+                                                <a class="header-mobile-menu-link active" href="selected.html">
                                                     <span class="header-mobile-menu-link-text">Обрані</span>
                                                     <svg class="icon header-mobile-menu-link-icon">
                                                         <use href="#angle-right-icon"></use>
@@ -449,297 +449,1183 @@
                 </div>
             </header>
             <!-- === / HEADER ===-->
-            <!-- === CONTACTS SHOWCASE ===-->
-            <section class="section section-first">
+            <!-- === SELECTED SHOWCASE ===-->
+            <section class="section section-offset-sm section-first selected-showcase">
                 <div class="container">
-                    <div class="contacts-showcase">
-                        <div class="contacts-showcase-header">
-                            <div class="page-header">
-                                <div class="container">
-                                    <div class="page-header-body">
-                                        <h1 class="page-header-title">Контакти</h1>
-                                        <nav aria-label="Попередні сторінки">
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item">
-                                                    <a class="breadcrumb-link" href="/">Головна</a>
-                                                </li>
-                                                <li class="breadcrumb-item active" aria-current="page">
-                                                    <span class="breadcrumb-active-text">Контакти</span>
-                                                </li>
-                                            </ol>
-                                        </nav>
+                    <div class="selected-showcase-header">
+                        <div class="page-header">
+                            <div class="container">
+                                <div class="page-header-body">
+                                    <h1 class="page-header-title">Обрані об’єкти</h1>
+                                    <nav aria-label="Попередні сторінки">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a class="breadcrumb-link" href="/">Головна</a>
+                                            </li>
+                                            <li class="breadcrumb-item active" aria-current="page">
+                                                <span class="breadcrumb-active-text">Обрані об’єкти</span>
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <picture>
+                        <source srcset="assets/img/selected-showcase-bg.webp" type="image/webp">
+                        <source srcset="assets/img/selected-showcase-bg.jpg" type="image/jpeg">
+                        <img class="selected-showcase-bg" src="assets/img/selected-showcase-bg.jpg" alt="">
+                    </picture>
+                </div>
+            </section>
+            <!-- === / SELECTED SHOWCASE ===-->
+            <!-- === GRID ===-->
+            <div class="section section-visible">
+                <div class="container container-fluid">
+                    <div class="results-grid results-grid-selected">
+                        <!-- === RESULTS HEADER ===-->
+                        <div class="results-grid-header">
+                            <div class="results-grid-header-item">
+                                <div class="results-grid-header-item-title">Знайдено об’єктів:</div>
+                                <div class="results-grid-header-item-value">447</div>
+                            </div>
+                            <div class="results-grid-header-item">
+                                <div class="results-grid-header-item-title">Сортувати:</div>
+                                <div class="results-grid-header-item-value">
+                                    <div class="select select-highlighted select-dense sort-select" id="results-sort">
+                                        <input class="select-input visually-hidden" type="text" name="sort" tabindex="-1" aria-hidden="true">
+                                        <button class="select-button" type="button" data-sd-toggle="dropdown" data-sd-target="#results-sort-select-dropdown" aria-expanded="false">
+                                            <span class="select-button-text"></span>
+                                            <svg class="icon select-button-arrow">
+                                                <use href="#angle-down-icon"></use>
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown select-dropdown" id="results-sort-select-dropdown">
+                                            <div class="select-dropdown-body">
+                                                <ul class="select-dropdown-list">
+                                                    <li class="select-dropdown-list-item">
+                                                        <button class="dropdown-item select-item active" type="button" data-sd-value="newest">Від новіших до старіших
+                                                        </button>
+                                                    </li>
+                                                    <li class="select-dropdown-list-item">
+                                                        <button class="dropdown-item select-item" type="button" data-sd-value="oldest">Від старіших до новіших
+                                                        </button>
+                                                    </li>
+                                                    <li class="select-dropdown-list-item">
+                                                        <button class="dropdown-item select-item" type="button" data-sd-value="price_up">Від дешевших до дорожчих
+                                                        </button>
+                                                    </li>
+                                                    <li class="select-dropdown-list-item">
+                                                        <button class="dropdown-item select-item" type="button" data-sd-value="price_down">Від дорожчих до дешевших
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="contacts-showcase-body">
-                            <div class="contacts-showcase-grid">
-                                <!-- === ITEM ===-->
-                                <div class="contacts-showcase-card">
-                                    <div class="contacts-showcase-card-title">м. Київ</div>
-                                    <ul class="contacts-showcase-card-list">
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#location-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#" role="button" data-sd-contacts-address="вул. Дорогожицька, 3. UNIT.City, Корпус B10 офіс 523">вул. Дорогожицька, 3. UNIT.City, Корпус B10 офіс 523</a>
-                                        </li>
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#location-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#" role="button" data-sd-contacts-address="вул. Велика Васильківська, 72">вул. Велика Васильківська, 72</a>
-                                        </li>
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#phone-ring-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#">+38 067 252 34 37</a>
-                                        </li>
-                                    </ul>
+                        <!-- === / RESULTS HEADER ===-->
+                        <div class="results-grid-content">
+                            <div class="results-grid-body">
+                                <!-- === RESULTS ITEMS ===-->
+                                <div class="results-grid-items results-grid-items-first">
+                                    <div>
+                                        <div class="card card-full">
+                                            <div class="card-media">
+                                                <div class="card-badge">
+                                                    <span class="badge badge-yellow">
+                                                        <svg class="icon badge-icon">
+                                                            <use href="#fire-icon"></use>
+                                                        </svg>ТОП
+                                                    </span>
+                                                </div>
+                                                <div class="swiper card-slider">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-1.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-1.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-1.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-1.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-1.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-1.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-1.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-1.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-1.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-1.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-1.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-1.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-1.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-1.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-1.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-1.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-1.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-1.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="card-slider-nav card-slider-prev" type="button" aria-label="Попередній слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-left-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="card-slider-nav card-slider-next" type="button" aria-label="Наступний слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="card-slider-footer">
+                                                        <div class="card-slider-pagination"></div>
+                                                        <div class="card-slider-scrollbar"></div>
+                                                        <button class="card-slider-like SELECT_OBJECT" type="button" data-sd-id="1">
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-inactive" role="img" aria-label="Додати до обраних">
+                                                                <use href="#heart-icon"></use>
+                                                            </svg>
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-active" role="img" aria-label="Видалити з обраних">
+                                                                <use href="#heart-filled-icon"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title">Преміальний апарт-комплекс з лаундж-зоною на даху.</h3>
+                                                <p class="card-description">м. Івано-Франківськ, р-н Пасічна</p>
+                                                <div class="card-info">
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#measure-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">45 м²</div>
+                                                    </div>
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#bed-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">2 кім</div>
+                                                    </div>
+                                                    <a class="card-info-item card-info-item-link" href="#">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#location-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">На карті</div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="card-price">2300 $</div>
+                                                    <a class="card-link" href="object-single.html" aria-label="Переглянути">
+                                                        <svg class="icon card-link-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="card card-full">
+                                            <div class="card-media">
+                                                <div class="card-badge">
+                                                    <span class="badge badge-yellow">
+                                                        <svg class="icon badge-icon">
+                                                            <use href="#fire-icon"></use>
+                                                        </svg>ТОП
+                                                    </span>
+                                                </div>
+                                                <div class="swiper card-slider">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-2.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-2.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-2.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-2.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-2.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-2.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-2.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-2.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-2.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-2.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-2.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-2.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-2.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-2.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-2.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-2.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-2.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-2.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="card-slider-nav card-slider-prev" type="button" aria-label="Попередній слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-left-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="card-slider-nav card-slider-next" type="button" aria-label="Наступний слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="card-slider-footer">
+                                                        <div class="card-slider-pagination"></div>
+                                                        <div class="card-slider-scrollbar"></div>
+                                                        <button class="card-slider-like SELECT_OBJECT" type="button" data-sd-id="1">
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-inactive" role="img" aria-label="Додати до обраних">
+                                                                <use href="#heart-icon"></use>
+                                                            </svg>
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-active" role="img" aria-label="Видалити з обраних">
+                                                                <use href="#heart-filled-icon"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title">Преміальний апарт-комплекс з лаундж-зоною на даху.</h3>
+                                                <p class="card-description">м. Івано-Франківськ, р-н Пасічна</p>
+                                                <div class="card-info">
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#measure-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">45 м²</div>
+                                                    </div>
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#bed-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">2 кім</div>
+                                                    </div>
+                                                    <a class="card-info-item card-info-item-link" href="#">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#location-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">На карті</div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="card-price">2300 $</div>
+                                                    <a class="card-link" href="object-single.html" aria-label="Переглянути">
+                                                        <svg class="icon card-link-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="card card-full">
+                                            <div class="card-media">
+                                                <div class="card-badge">
+                                                    <span class="badge badge-yellow">
+                                                        <svg class="icon badge-icon">
+                                                            <use href="#fire-icon"></use>
+                                                        </svg>ТОП
+                                                    </span>
+                                                </div>
+                                                <div class="swiper card-slider">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-3.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-3.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-3.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-3.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-3.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-3.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-3.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-3.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-3.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-3.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-3.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-3.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-3.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-3.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-3.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-3.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-3.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-3.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="card-slider-nav card-slider-prev" type="button" aria-label="Попередній слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-left-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="card-slider-nav card-slider-next" type="button" aria-label="Наступний слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="card-slider-footer">
+                                                        <div class="card-slider-pagination"></div>
+                                                        <div class="card-slider-scrollbar"></div>
+                                                        <button class="card-slider-like SELECT_OBJECT" type="button" data-sd-id="1">
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-inactive" role="img" aria-label="Додати до обраних">
+                                                                <use href="#heart-icon"></use>
+                                                            </svg>
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-active" role="img" aria-label="Видалити з обраних">
+                                                                <use href="#heart-filled-icon"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title">Преміальний апарт-комплекс з лаундж-зоною на даху. Тільки преміальні матеріали і найвища якість</h3>
+                                                <p class="card-description">м. Івано-Франківськ, р-н Пасічна</p>
+                                                <div class="card-info">
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#measure-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">45 м²</div>
+                                                    </div>
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#bed-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">2 кім</div>
+                                                    </div>
+                                                    <a class="card-info-item card-info-item-link" href="#">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#location-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">На карті</div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="card-price">2300 $</div>
+                                                    <a class="card-link" href="object-single.html" aria-label="Переглянути">
+                                                        <svg class="icon card-link-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="card card-full">
+                                            <div class="card-media">
+                                                <div class="card-badge">
+                                                    <span class="badge badge-yellow">
+                                                        <svg class="icon badge-icon">
+                                                            <use href="#fire-icon"></use>
+                                                        </svg>ТОП
+                                                    </span>
+                                                </div>
+                                                <div class="swiper card-slider">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-4.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-4.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-4.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-4.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-4.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-4.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-4.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-4.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-4.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-4.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-4.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-4.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-4.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-4.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-4.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-4.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-4.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-4.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="card-slider-nav card-slider-prev" type="button" aria-label="Попередній слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-left-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="card-slider-nav card-slider-next" type="button" aria-label="Наступний слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="card-slider-footer">
+                                                        <div class="card-slider-pagination"></div>
+                                                        <div class="card-slider-scrollbar"></div>
+                                                        <button class="card-slider-like SELECT_OBJECT" type="button" data-sd-id="1">
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-inactive" role="img" aria-label="Додати до обраних">
+                                                                <use href="#heart-icon"></use>
+                                                            </svg>
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-active" role="img" aria-label="Видалити з обраних">
+                                                                <use href="#heart-filled-icon"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title">Преміальний апарт-комплекс з лаундж-зоною на даху.</h3>
+                                                <p class="card-description">м. Івано-Франківськ, р-н Пасічна</p>
+                                                <div class="card-info">
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#measure-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">45 м²</div>
+                                                    </div>
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#bed-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">2 кім</div>
+                                                    </div>
+                                                    <a class="card-info-item card-info-item-link" href="#">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#location-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">На карті</div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="card-price">2300 $</div>
+                                                    <a class="card-link" href="object-single.html" aria-label="Переглянути">
+                                                        <svg class="icon card-link-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="card card-full">
+                                            <div class="card-media">
+                                                <div class="card-badge">
+                                                    <span class="badge badge-yellow">
+                                                        <svg class="icon badge-icon">
+                                                            <use href="#fire-icon"></use>
+                                                        </svg>ТОП
+                                                    </span>
+                                                </div>
+                                                <div class="swiper card-slider">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-5.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-5.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-5.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-5.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-5.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-5.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-5.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-5.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-5.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-5.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-5.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-5.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-5.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-5.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-5.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-5.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-5.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-5.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="card-slider-nav card-slider-prev" type="button" aria-label="Попередній слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-left-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="card-slider-nav card-slider-next" type="button" aria-label="Наступний слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="card-slider-footer">
+                                                        <div class="card-slider-pagination"></div>
+                                                        <div class="card-slider-scrollbar"></div>
+                                                        <button class="card-slider-like SELECT_OBJECT" type="button" data-sd-id="1">
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-inactive" role="img" aria-label="Додати до обраних">
+                                                                <use href="#heart-icon"></use>
+                                                            </svg>
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-active" role="img" aria-label="Видалити з обраних">
+                                                                <use href="#heart-filled-icon"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title">Преміальний апарт-комплекс з лаундж-зоною на даху.</h3>
+                                                <p class="card-description">м. Івано-Франківськ, р-н Пасічна</p>
+                                                <div class="card-info">
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#measure-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">45 м²</div>
+                                                    </div>
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#bed-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">2 кім</div>
+                                                    </div>
+                                                    <a class="card-info-item card-info-item-link" href="#">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#location-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">На карті</div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="card-price">2300 $</div>
+                                                    <a class="card-link" href="object-single.html" aria-label="Переглянути">
+                                                        <svg class="icon card-link-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="card card-full">
+                                            <div class="card-media">
+                                                <div class="card-badge">
+                                                    <span class="badge badge-yellow">
+                                                        <svg class="icon badge-icon">
+                                                            <use href="#fire-icon"></use>
+                                                        </svg>ТОП
+                                                    </span>
+                                                </div>
+                                                <div class="swiper card-slider">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-6.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-6.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-6.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-6.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-6.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-6.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-6.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-6.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-6.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-6.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-6.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-6.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-6.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-6.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-6.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-6.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-6.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-6.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="card-slider-nav card-slider-prev" type="button" aria-label="Попередній слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-left-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="card-slider-nav card-slider-next" type="button" aria-label="Наступний слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="card-slider-footer">
+                                                        <div class="card-slider-pagination"></div>
+                                                        <div class="card-slider-scrollbar"></div>
+                                                        <button class="card-slider-like SELECT_OBJECT" type="button" data-sd-id="1">
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-inactive" role="img" aria-label="Додати до обраних">
+                                                                <use href="#heart-icon"></use>
+                                                            </svg>
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-active" role="img" aria-label="Видалити з обраних">
+                                                                <use href="#heart-filled-icon"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title">Преміальний апарт-комплекс з лаундж-зоною на даху. Тільки преміальні матеріали і найвища якість</h3>
+                                                <p class="card-description">м. Івано-Франківськ, р-н Пасічна</p>
+                                                <div class="card-info">
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#measure-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">45 м²</div>
+                                                    </div>
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#bed-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">2 кім</div>
+                                                    </div>
+                                                    <a class="card-info-item card-info-item-link" href="#">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#location-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">На карті</div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="card-price">2300 $</div>
+                                                    <a class="card-link" href="object-single.html" aria-label="Переглянути">
+                                                        <svg class="icon card-link-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="card card-full">
+                                            <div class="card-media">
+                                                <div class="card-badge">
+                                                    <span class="badge badge-yellow">
+                                                        <svg class="icon badge-icon">
+                                                            <use href="#fire-icon"></use>
+                                                        </svg>ТОП
+                                                    </span>
+                                                </div>
+                                                <div class="swiper card-slider">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-7.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-7.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-7.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-7.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-7.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-7.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-7.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-7.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-7.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-7.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-7.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-7.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-7.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-7.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-7.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-7.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-7.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-7.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="card-slider-nav card-slider-prev" type="button" aria-label="Попередній слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-left-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="card-slider-nav card-slider-next" type="button" aria-label="Наступний слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="card-slider-footer">
+                                                        <div class="card-slider-pagination"></div>
+                                                        <div class="card-slider-scrollbar"></div>
+                                                        <button class="card-slider-like SELECT_OBJECT" type="button" data-sd-id="1">
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-inactive" role="img" aria-label="Додати до обраних">
+                                                                <use href="#heart-icon"></use>
+                                                            </svg>
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-active" role="img" aria-label="Видалити з обраних">
+                                                                <use href="#heart-filled-icon"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title">Преміальний апарт-комплекс з лаундж-зоною на даху.</h3>
+                                                <p class="card-description">м. Івано-Франківськ, р-н Пасічна</p>
+                                                <div class="card-info">
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#measure-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">45 м²</div>
+                                                    </div>
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#bed-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">2 кім</div>
+                                                    </div>
+                                                    <a class="card-info-item card-info-item-link" href="#">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#location-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">На карті</div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="card-price">2300 $</div>
+                                                    <a class="card-link" href="object-single.html" aria-label="Переглянути">
+                                                        <svg class="icon card-link-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="card card-full">
+                                            <div class="card-media">
+                                                <div class="card-badge">
+                                                    <span class="badge badge-yellow">
+                                                        <svg class="icon badge-icon">
+                                                            <use href="#fire-icon"></use>
+                                                        </svg>ТОП
+                                                    </span>
+                                                </div>
+                                                <div class="swiper card-slider">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-8.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-8.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-8.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-8.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-8.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-8.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-8.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-8.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-8.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-8.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-8.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-8.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-8.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-8.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-8.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <div class="card-slider-img-wrapper">
+                                                                <picture>
+                                                                    <source srcset="assets/img/card-8.webp" type="image/webp">
+                                                                    <source srcset="assets/img/card-8.jpg" type="image/jpeg">
+                                                                    <img class="card-slider-img" src="assets/img/card-8.jpg" alt="" loading="lazy">
+                                                                </picture>
+                                                            </div>
+                                                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="card-slider-nav card-slider-prev" type="button" aria-label="Попередній слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-left-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="card-slider-nav card-slider-next" type="button" aria-label="Наступний слайд">
+                                                        <svg class="icon card-slider-nav-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="card-slider-footer">
+                                                        <div class="card-slider-pagination"></div>
+                                                        <div class="card-slider-scrollbar"></div>
+                                                        <button class="card-slider-like SELECT_OBJECT" type="button" data-sd-id="1">
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-inactive" role="img" aria-label="Додати до обраних">
+                                                                <use href="#heart-icon"></use>
+                                                            </svg>
+                                                            <svg class="icon card-slider-like-icon card-slider-like-icon-active" role="img" aria-label="Видалити з обраних">
+                                                                <use href="#heart-filled-icon"></use>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title">Преміальний апарт-комплекс з лаундж-зоною на даху.</h3>
+                                                <p class="card-description">м. Івано-Франківськ, р-н Пасічна</p>
+                                                <div class="card-info">
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#measure-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">45 м²</div>
+                                                    </div>
+                                                    <div class="card-info-item">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#bed-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">2 кім</div>
+                                                    </div>
+                                                    <a class="card-info-item card-info-item-link" href="#">
+                                                        <svg class="icon card-info-item-icon">
+                                                            <use href="#location-icon"></use>
+                                                        </svg>
+                                                        <div class="card-info-item-text">На карті</div>
+                                                    </a>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <div class="card-price">2300 $</div>
+                                                    <a class="card-link" href="object-single.html" aria-label="Переглянути">
+                                                        <svg class="icon card-link-icon">
+                                                            <use href="#angle-right-icon"></use>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- === / ITEM ===-->
-                                <!-- === ITEM ===-->
-                                <div class="contacts-showcase-card">
-                                    <div class="contacts-showcase-card-title">м. Львів</div>
-                                    <ul class="contacts-showcase-card-list">
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#location-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#" role="button" data-sd-contacts-address="вул. Замарстинівська, 43">вул. Замарстинівська, 43</a>
-                                        </li>
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#phone-ring-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#">+38 067 558 42 62</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- === / ITEM ===-->
-                                <!-- === ITEM ===-->
-                                <div class="contacts-showcase-card">
-                                    <div class="contacts-showcase-card-title">м. Івано-Франківськ</div>
-                                    <ul class="contacts-showcase-card-list">
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#location-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#" role="button" data-sd-contacts-address="вул. Незалежності, 35, офіс 12">вул. Незалежності, 35, офіс 12</a>
-                                        </li>
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#phone-ring-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#">+38 095 350 87 97</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- === / ITEM ===-->
-                                <!-- === ITEM ===-->
-                                <div class="contacts-showcase-card">
-                                    <div class="contacts-showcase-card-title">м. Чернівці</div>
-                                    <ul class="contacts-showcase-card-list">
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#location-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#" role="button" data-sd-contacts-address="вул. Героїв Майдану, 226а">вул. Героїв Майдану, 226а</a>
-                                        </li>
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#phone-ring-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#">+38 067 253 23 92</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- === / ITEM ===-->
-                                <!-- === ITEM ===-->
-                                <div class="contacts-showcase-card">
-                                    <div class="contacts-showcase-card-title">м. Тернопіль</div>
-                                    <ul class="contacts-showcase-card-list">
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#location-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#" role="button" data-sd-contacts-address="вул. О. Кульчицької, 2">вул. О. Кульчицької, 2</a>
-                                        </li>
-                                        <li class="contacts-showcase-card-item">
-                                            <svg class="icon contacts-showcase-card-icon">
-                                                <use href="#phone-ring-icon"></use>
-                                            </svg>
-                                            <a class="contacts-showcase-card-link" href="#">+38 098 106 74 83</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- === / ITEM ===-->
+                                <!-- === / RESULTS ITEMS ===-->
                             </div>
+                            <!-- === RESULTS PAGINATION ===-->
+                            <div class="results-grid-pagination">
+                                <nav aria-label="Перемкнути сторінку">
+                                    <ul class="pagination">
+                                        <li class="pagination-item">
+                                            <a class="pagination-nav-link" href="#">
+                                                <svg class="icon pagination-icon" role="img" aria-label="Попередня сторінка">
+                                                    <use href="#angle-left-icon"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li class="pagination-item">
+                                            <a class="pagination-link" href="#">1</a>
+                                        </li>
+                                        <li class="pagination-item pagination-item-empty" aria-hidden="true">...</li>
+                                        <li class="pagination-item">
+                                            <a class="pagination-link active" href="#">5</a>
+                                        </li>
+                                        <li class="pagination-item">
+                                            <a class="pagination-link" href="#">6</a>
+                                        </li>
+                                        <li class="pagination-item">
+                                            <a class="pagination-link" href="#">7</a>
+                                        </li>
+                                        <li class="pagination-item pagination-item-empty" aria-hidden="true">...</li>
+                                        <li class="pagination-item">
+                                            <a class="pagination-link" href="#">12</a>
+                                        </li>
+                                        <li class="pagination-item">
+                                            <a class="pagination-nav-link" href="#">
+                                                <svg class="icon pagination-icon" role="img" aria-label="Наступна сторінка">
+                                                    <use href="#angle-right-icon"></use>
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- === / RESULTS PAGINATION ===-->
                         </div>
-                        <picture>
-                            <source srcset="assets/img/contacts-showcase-bg.webp" type="image/webp">
-                            <source srcset="assets/img/contacts-showcase-bg.jpg" type="image/jpeg">
-                            <img class="contacts-showcase-bg" src="assets/img/contacts-showcase-bg.jpg" alt="">
-                        </picture>
                     </div>
-                </div>
-            </section>
-            <!-- === / CONTACTS SHOWCASE ===-->
-            <!-- === CONTACTS MAP ===-->
-            <div class="section">
-                <div class="contacts-map">
-                    <div class="contacts-map-body map" data-sd-address="[&quot;вул. Дорогожицька, 3. UNIT.City, Корпус B10 офіс 523&quot;,&quot;вул. Велика Васильківська, 72&quot;,&quot;вул. Замарстинівська, 43&quot;,&quot;вул. Незалежності, 35, офіс 12&quot;,&quot;вул. Героїв Майдану, 226а&quot;,&quot;вул. О. Кульчицької, 2&quot;]"></div>
                 </div>
             </div>
-            <!-- === / CONTACTS MAP ===-->
-            <!-- === CONTACTS FORM ===-->
-            <section class="section section-padded section-dense section-visible section-dark">
-                <div class="container container-sm">
-                    <div class="section-header">
-                        <h2 class="section-title">Хочете купити чи продати житло?</h2>
-                        <p class="section-text">Залиште заявку і ми зв’яжемось з вами найближчим часом</p>
-                    </div>
-                    <form class="contacts-form validate" novalidate>
-                        <div class="contacts-form-body">
-                            <div class="contacts-form-item">
-                                <div class="input input-outlined input-dark">
-                                    <svg class="icon input-icon">
-                                        <use href="#user-icon"></use>
-                                    </svg>
-                                    <input class="input-element" type="text" name="name" placeholder="Ім’я *" required>
-                                </div>
-                            </div>
-                            <div class="contacts-form-item">
-                                <div class="input input-outlined input-dark">
-                                    <svg class="icon input-icon">
-                                        <use href="#phone-outlined-icon"></use>
-                                    </svg>
-                                    <input class="input-element" type="tel" name="phone" placeholder="Номер телефону *" required>
-                                </div>
-                            </div>
-                            <div class="contacts-form-item">
-                                <div class="select select-bordered select-dark" id="contacts-form-city" data-sd-placeholder="Місто *" data-sd-placeholder-option="false">
-                                    <input class="select-input visually-hidden" type="text" name="city" tabindex="-1" aria-hidden="true" required>
-                                    <button class="select-button" type="button" data-sd-toggle="dropdown" data-sd-target="#contacts-form-city-select-dropdown" aria-expanded="false">
-                                        <svg class="icon select-button-icon">
-                                            <use href="#building-icon"></use>
-                                        </svg>
-                                        <span class="select-button-text"></span>
-                                        <svg class="icon select-button-arrow">
-                                            <use href="#angle-down-icon"></use>
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown select-dropdown" id="contacts-form-city-select-dropdown">
-                                        <div class="select-dropdown-body">
-                                            <ul class="select-dropdown-list">
-                                                <li class="select-dropdown-list-item">
-                                                    <button class="dropdown-item select-item" type="button">Київ
-                                                    </button>
-                                                </li>
-                                                <li class="select-dropdown-list-item">
-                                                    <button class="dropdown-item select-item" type="button">Львів
-                                                    </button>
-                                                </li>
-                                                <li class="select-dropdown-list-item">
-                                                    <button class="dropdown-item select-item" type="button">Івано-Франківськ
-                                                    </button>
-                                                </li>
-                                                <li class="select-dropdown-list-item">
-                                                    <button class="dropdown-item select-item" type="button">Тернопіль
-                                                    </button>
-                                                </li>
-                                                <li class="select-dropdown-list-item">
-                                                    <button class="dropdown-item select-item" type="button">Чернівці
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="contacts-form-item">
-                                <div class="select select-bordered select-dark" id="contacts-form-type">
-                                    <input class="select-input visually-hidden" type="text" name="type" tabindex="-1" aria-hidden="true" required>
-                                    <button class="select-button" type="button" data-sd-toggle="dropdown" data-sd-target="#contacts-form-type-select-dropdown" aria-expanded="false">
-                                        <svg class="icon select-button-icon">
-                                            <use href="#state-icon"></use>
-                                        </svg>
-                                        <span class="select-button-text"></span>
-                                        <svg class="icon select-button-arrow">
-                                            <use href="#angle-down-icon"></use>
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown select-dropdown" id="contacts-form-type-select-dropdown">
-                                        <div class="select-dropdown-body">
-                                            <ul class="select-dropdown-list">
-                                                <li class="select-dropdown-list-item">
-                                                    <button class="dropdown-item select-item active" type="button">Купити
-                                                    </button>
-                                                </li>
-                                                <li class="select-dropdown-list-item">
-                                                    <button class="dropdown-item select-item" type="button">Продати
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contacts-form-submit">
-                            <button class="button button-contained button-secondary" type="submit">
-                                <svg class="icon button-icon button-icon-start">
-                                    <use href="#expand-icon"></use>
-                                </svg>Надіслати
-                            </button>
-                        </div>
-                        <picture>
-                            <source srcset="assets/img/object-form-img.webp" type="image/webp">
-                            <source srcset="assets/img/object-form-img.jpg" type="image/jpeg">
-                            <img class="contacts-form-img" src="assets/img/object-form-img.jpg" alt="">
-                        </picture>
-                    </form>
-                </div>
-            </section>
-            <!-- === / CONTACTS FORM ===-->
-            <!-- === PROMO ===-->
-            <section class="section">
-                <div class="promo">
-                    <div class="promo-info">
-                        <h2 class="promo-title">Приєднуйтесь до нас у соцмережах</h2>
-                        <p class="promo-description">Тут завжди актуальна інформація для вас</p>
-                    </div>
-                    <div>
-                        <nav class="socials socials-primary">
-                            <ul class="socials-list">
-                                <li class="socials-item">
-                                    <a class="socials-link" href="https://instagram.com" target="_blank" aria-label="Наша сторінка в Instagram">
-                                        <svg class="icon socials-icon">
-                                            <use href="#instagram-icon"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="socials-item">
-                                    <a class="socials-link" href="https://facebook.com" target="_blank" aria-label="Наша сторінка в Facebook">
-                                        <svg class="icon socials-icon">
-                                            <use href="#facebook-icon"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li class="socials-item">
-                                    <a class="socials-link" href="https://youtube.com" target="_blank" aria-label="Наш канал на YouTube">
-                                        <svg class="icon socials-icon">
-                                            <use href="#youtube-icon"></use>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </section>
-            <!-- === / PROMO ===-->
+            <!-- === / GRID ===-->
             <!-- === FOOTER ===-->
             <footer class="footer">
                 <div class="container">
