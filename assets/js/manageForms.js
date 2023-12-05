@@ -1,1 +1,1 @@
-const manageForms=o=>o.ok;
+const manageForms=a=>!1;
