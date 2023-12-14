@@ -1,1 +1,1 @@
-const manageForms=a=>!1;
+window.manageForms=o=>(o.ok&&window._sTst(),!1);
